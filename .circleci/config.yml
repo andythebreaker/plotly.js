@@ -507,7 +507,7 @@ jobs:
     steps:
       - run:
           name: install libu2f-udev for chrome
-          command: sudo apt install libu2f-udev
+          command: sudo apt install equivs && equivs-control libu2f-udev
       - browser-tools/install-browser-tools: &browser-versions
           chrome-version: 123.0.6312.58
           install-firefox: false
