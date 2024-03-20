@@ -55,6 +55,9 @@ jobs:
       - image: cimg/node:16.17.1-browsers
     working_directory: ~/plotly.js
     steps:
+      - run:
+          name: Install libu2f-udev needed for chrome installation
+          command: sudo apt install libu2f-udev
       - browser-tools/install-browser-tools: &browser-versions
           chrome-version: 116.0.5845.96
           install-firefox: false
@@ -92,6 +95,9 @@ jobs:
     parallelism: 12
     working_directory: ~/plotly.js
     steps:
+      - run:
+          name: Install libu2f-udev needed for chrome installation
+          command: sudo apt install libu2f-udev
       - browser-tools/install-browser-tools: &browser-versions
           chrome-version: 116.0.5845.96
           install-firefox: false
@@ -112,6 +118,9 @@ jobs:
     parallelism: 8
     working_directory: ~/plotly.js
     steps:
+      - run:
+          name: Install libu2f-udev needed for chrome installation
+          command: sudo apt install libu2f-udev
       - browser-tools/install-browser-tools: &browser-versions
           chrome-version: 116.0.5845.96
           install-firefox: false
@@ -132,6 +141,9 @@ jobs:
     parallelism: 8
     working_directory: ~/plotly.js
     steps:
+      - run:
+          name: Install libu2f-udev needed for chrome installation
+          command: sudo apt install libu2f-udev
       - browser-tools/install-browser-tools: &browser-versions
           chrome-version: 116.0.5845.96
           install-firefox: false
@@ -151,6 +163,9 @@ jobs:
       TZ: "America/Anchorage"
     working_directory: ~/plotly.js
     steps:
+      - run:
+          name: Install libu2f-udev needed for chrome installation
+          command: sudo apt install libu2f-udev
       - browser-tools/install-browser-tools: &browser-versions
           chrome-version: 116.0.5845.96
           install-firefox: false
@@ -170,6 +185,9 @@ jobs:
       TZ: "America/Anchorage"
     working_directory: ~/plotly.js
     steps:
+      - run:
+          name: Install libu2f-udev needed for chrome installation
+          command: sudo apt install libu2f-udev
       - browser-tools/install-browser-tools: &browser-versions
           chrome-version: 116.0.5845.96
           install-firefox: false
