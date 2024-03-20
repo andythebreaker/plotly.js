@@ -499,75 +499,23 @@ jobs:
           name: Display function constructors in all bundles
           command: npm run no-new-func
 
+  install-chrome:
+    docker:
+      # need '-browsers' version to test in real (xvfb-wrapped) browsers
+      - image: cimg/node:16.20.2-browsers
+    working_directory: ~/plotly.js
+    steps:
+      - run:
+          name: install libu2f-udev for chrome
+          command: sudo apt install libu2f-udev
+      - browser-tools/install-browser-tools: &browser-versions
+          chrome-version: 123.0.6312.58
+          install-firefox: false
+          install-geckodriver: false
+
+
 workflows:
   version: 2
   build-and-test:
     jobs:
-      - install-and-cibuild-node12
-
-      - install-and-cibuild
-      - timezone-jasmine:
-          requires:
-            - install-and-cibuild
-      - bundle-jasmine:
-          requires:
-            - install-and-cibuild
-      - mathjax-firefox81:
-          requires:
-            - install-and-cibuild
-      - mathjax-firefox82:
-          requires:
-            - install-and-cibuild
-      - mathjax-firefoxLatest:
-          requires:
-            - install-and-cibuild
-      - no-gl-jasmine:
-          requires:
-            - install-and-cibuild
-      - webgl-jasmine:
-          requires:
-            - install-and-cibuild
-      - virtual-webgl-jasmine:
-          requires:
-            - install-and-cibuild
-      - flaky-no-gl-jasmine:
-          requires:
-            - install-and-cibuild
-      - make-baselines-virtual-webgl:
-          requires:
-            - install-and-cibuild
-      - test-baselines-virtual-webgl:
-          requires:
-            - make-baselines-virtual-webgl
-      - make-baselines-mathjax3:
-          requires:
-            - install-and-cibuild
-      - test-baselines-mathjax3:
-          requires:
-            - make-baselines-mathjax3
-      - make-baselines-b64:
-          requires:
-            - install-and-cibuild
-      - test-baselines-b64:
-          requires:
-            - make-baselines-b64
-      - make-baselines:
-          requires:
-            - install-and-cibuild
-      - test-baselines:
-          requires:
-            - make-baselines
-      - make-exports:
-          requires:
-            - install-and-cibuild
-      - test-exports:
-          requires:
-            - make-exports
-      - mock-validation:
-          requires:
-            - install-and-cibuild
-      - source-syntax:
-          requires:
-            - install-and-cibuild
-
-      - publish-dist
+      - install-chrome
