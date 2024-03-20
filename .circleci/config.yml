@@ -57,7 +57,6 @@ jobs:
     steps:
       - browser-tools/install-browser-tools: &browser-versions
           chrome-version: 123.0.6312.58
-          install-chromedriver: false
           install-firefox: false
           install-geckodriver: false
       - attach_workspace:
@@ -95,7 +94,6 @@ jobs:
     steps:
       - browser-tools/install-browser-tools: &browser-versions
           chrome-version: 123.0.6312.58
-          install-chromedriver: false
           install-firefox: false
           install-geckodriver: false
       - attach_workspace:
@@ -116,7 +114,6 @@ jobs:
     steps:
       - browser-tools/install-browser-tools: &browser-versions
           chrome-version: 123.0.6312.58
-          install-chromedriver: false
           install-firefox: false
           install-geckodriver: false
       - attach_workspace:
@@ -137,7 +134,6 @@ jobs:
     steps:
       - browser-tools/install-browser-tools: &browser-versions
           chrome-version: 123.0.6312.58
-          install-chromedriver: false
           install-firefox: false
           install-geckodriver: false
       - attach_workspace:
@@ -157,7 +153,6 @@ jobs:
     steps:
       - browser-tools/install-browser-tools: &browser-versions
           chrome-version: 123.0.6312.58
-          install-chromedriver: false
           install-firefox: false
           install-geckodriver: false
       - attach_workspace:
@@ -177,7 +172,6 @@ jobs:
     steps:
       - browser-tools/install-browser-tools: &browser-versions
           chrome-version: 123.0.6312.58
-          install-chromedriver: false
           install-firefox: false
           install-geckodriver: false
       - attach_workspace:
