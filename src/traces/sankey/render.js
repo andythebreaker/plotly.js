@@ -59,6 +59,8 @@ function sankeyModel(layout, d, traceIndex) {
         sankey = d3Sankey.sankey();
     }
 
+    // eslint-disable-next-line no-console
+    console.log('[debug .nodes(nodes)]', nodes.length, nodes[0].x0);
     sankey
       .iterations(c.sankeyIterations)
       .size(horizontal ? [width, height] : [height, width])
@@ -72,6 +74,8 @@ function sankeyModel(layout, d, traceIndex) {
       .links(links);
 
     var graph = sankey();
+    // eslint-disable-next-line no-console
+    console.log('[debug graph]', graph.nodes.length, graph.nodes[0].x0);
 
     if(sankey.nodePadding() < nodePad) {
         Lib.warn('node.pad was reduced to ', sankey.nodePadding(), ' to fit within the figure.');
