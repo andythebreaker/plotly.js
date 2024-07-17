@@ -126,6 +126,8 @@ function convertToD3Sankey(trace) {
             color: hasNodeColorArray ? nodeSpec.color[i] : nodeSpec.color,
             customdata: hasNodeCustomdataArray ? nodeSpec.customdata[i] : nodeSpec.customdata
         });
+        // eslint-disable-next-line no-console
+        console.log('[debug nodes]', nodes.length, nodes[nodes.length - 1].x0);
     }
 
     // Check if we have circularity on the resulting graph
@@ -167,8 +169,11 @@ function circularityPresent(nodeLen, sources, targets) {
 }
 
 module.exports = function calc(gd, trace) {
+    // eslint-disable-next-line no-console
+    console.log('[debug]', trace);
     var result = convertToD3Sankey(trace);
-
+    // eslint-disable-next-line no-console
+    console.log('[debug result]', result.nodes.length, result.nodes[0].x0);
     return wrap({
         circular: result.circular,
         _nodes: result.nodes,
